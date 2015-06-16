@@ -21,4 +21,12 @@ abstract class BaseController {
     public function index() {
         // Implement the default action in the subclasses
     }
+    
+    protected function setJsonHeader(){
+        header('Content-Type: application/json');
+    }
+    
+    protected function setStatusCode($code){
+        http_response_code($code);
+    }
 }

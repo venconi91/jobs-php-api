@@ -25,12 +25,15 @@ $controllerFileName = "controllers/" . $controllerClassName . '.php';
 if (class_exists($controllerClassName)) {
     $controller = new $controllerClassName($controllerName, $action);
 } else {
+    http_response_code(404);
     die("Cannot find controller '$controllerName' in class '$controllerFileName'");
 }
 
 if (method_exists($controller, $action)) {
-    call_user_func_array(array($controller, $action), $params);
+    $res = call_user_func_array(array($controller, $action), $params);
+    exit($res);
 } else {
+    http_response_code(404);
     die("Cannot find action '$action' in controller '$controllerClassName'");
 }
 

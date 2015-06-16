@@ -2,14 +2,30 @@
 
 class JobsController extends BaseController {
 
-    //private $db;
+    private $db;
 
     public function onInit() {
-        // instance of db
+        
+        $this->db = new JobsModel();
     }
 
-    public function review($id) {
-        // instanciate model and call certain method
-        // return data in json
+    public function review($id = NULL) {
+        
+        $result = "";
+        if ($id != NULL && is_numeric($id)) { 
+            // get certain job
+            $intId = (int)$id;
+            $result = $this->db->reviewById($intId);
+        }
+        else {
+            $result = $this->db->reviewAll();
+        }
+        if ($result == NULL) {
+            self::setStatusCode(404);
+            return;
+        }
+        self::setJsonHeader();
+        
+        return json_encode($result);
     }
 }
