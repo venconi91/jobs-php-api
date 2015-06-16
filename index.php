@@ -14,7 +14,6 @@ if (count($requestParts) >= 2 && $requestParts[1] != '') {
 $action = DEFAULT_ACTION;
 if (count($requestParts) >= 3 && $requestParts[2] != '') {
     $action = $requestParts[2];
-    // if url for certain job is /jobs/{id} and not /jobs/view/{id} check here if parameter is id or method name
 }
 
 $params = array_splice($requestParts, 3);

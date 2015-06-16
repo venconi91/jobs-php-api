@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `candidates` (
   `created_on` date NOT NULL,
   PRIMARY KEY (`id`),
   KEY `job_id` (`job_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Схема на данните от таблица `candidates`
@@ -45,7 +45,8 @@ INSERT INTO `candidates` (`id`, `name`, `job_id`, `created_on`) VALUES
 (1, 'pesho candidate for php', 1, '2015-06-16'),
 (2, 'gosho candidate for java', 2, '2015-06-16'),
 (3, 'sasho candidate for php', 1, '2015-06-16'),
-(4, 'penka candidate for java', 2, '2015-06-16');
+(4, 'penka candidate for java', 2, '2015-06-16'),
+(5, 'johan', 1, '2015-06-15');
 
 -- --------------------------------------------------------
 
